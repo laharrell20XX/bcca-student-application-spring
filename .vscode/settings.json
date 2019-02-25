@@ -1,0 +1,13 @@
+{
+    "liveshare.nameTagVisibility": "Never",
+    "files.associations": {
+        "*.mustache": "html"
+    },
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    }
+}
