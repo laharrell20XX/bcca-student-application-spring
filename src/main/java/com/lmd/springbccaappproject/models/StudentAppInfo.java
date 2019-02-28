@@ -9,14 +9,11 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 @Data
 @RequiredArgsConstructor
-@AllArgsConstructor
 public class StudentAppInfo {
 
     @NotBlank
@@ -103,5 +100,27 @@ public class StudentAppInfo {
         ParsePosition position = new ParsePosition(0);
         System.out.println(graduationDate);
         return formatter.parse(graduationDate, position);
+    }
+
+    public StudentAppInfo(String name, Integer age, String phoneNumber, String email, String highSchool,
+            String graduationDate, String priorKnowledge, String currentPlan, String aptitude, String passion,
+            String dedication) {
+
+        this.name = name;
+        this.age = age;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.highSchool = highSchool;
+        this.graduationDate = graduationDate;
+        this.priorKnowledge = priorKnowledge;
+        this.currentPlan = currentPlan;
+        this.aptitude = aptitude;
+        this.passion = passion;
+        this.dedication = dedication;
+    }
+
+    public String toString() {
+        return String.format("(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", name, age, phoneNumber, email, highSchool,
+                graduationDate, priorKnowledge, currentPlan, aptitude, passion, dedication);
     }
 }
