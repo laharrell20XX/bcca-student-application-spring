@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
+import java.util.List;
+
 import com.lmd.springbccaappproject.models.StudentAppInfo;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +30,15 @@ public class StudentAppRepository {
                 application.passion, application.dedication);
     }
 
+    public List<StudentAppInfo> findAll() {
+        return jdbc.query(
+                "SELECT id, name, age, phone_number, email, high_school, graduation_date, prior_knowledge, current_plan, aptitude, passion, dedication FROM student_applications",
+                this::mapModelToStudentAppInfo);
+    }
+
     private StudentAppInfo mapModelToStudentAppInfo(ResultSet rs, int rowNum) throws SQLException {
         return new StudentAppInfo(rs.getString("name"), rs.getInt("age"), rs.getString("phone_number"),
-                rs.getString("email"), rs.getString("high_school"), rs.getDate("graduation_date"),
+                rs.getString("email"), rs.getString("high_school"), rs.getString("graduation_date"),
                 rs.getString("prior_knowledge"), rs.getString("current_plan"), rs.getString("aptitude"),
                 rs.getString("passion"), rs.getString("dedication"));
     }
