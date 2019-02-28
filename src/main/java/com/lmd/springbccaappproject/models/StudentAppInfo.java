@@ -61,6 +61,13 @@ public class StudentAppInfo {
     }
 
     @NotBlank
+    public boolean eligibility;
+
+    public void setEligibility(boolean eligibility) {
+        this.eligibility = eligibility;
+    }
+
+    @NotBlank
     public String priorKnowledge;
 
     public void setPriorKnowledge(String priorKnowledge) {
@@ -103,8 +110,8 @@ public class StudentAppInfo {
     }
 
     public StudentAppInfo(String name, Integer age, String phoneNumber, String email, String highSchool,
-            String graduationDate, String priorKnowledge, String currentPlan, String aptitude, String passion,
-            String dedication) {
+            String graduationDate, boolean eligibility, String priorKnowledge, String currentPlan, String aptitude,
+            String passion, String dedication) {
 
         this.name = name;
         this.age = age;
@@ -112,6 +119,7 @@ public class StudentAppInfo {
         this.email = email;
         this.highSchool = highSchool;
         this.graduationDate = graduationDate;
+        this.eligibility = eligibility;
         this.priorKnowledge = priorKnowledge;
         this.currentPlan = currentPlan;
         this.aptitude = aptitude;
@@ -120,7 +128,7 @@ public class StudentAppInfo {
     }
 
     public String toString() {
-        return String.format("(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", name, age, phoneNumber, email, highSchool,
-                graduationDate, priorKnowledge, currentPlan, aptitude, passion, dedication);
+        return String.format("(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", name, age, phoneNumber, email,
+                highSchool, graduationDate, eligibility, priorKnowledge, currentPlan, aptitude, passion, dedication);
     }
 }
