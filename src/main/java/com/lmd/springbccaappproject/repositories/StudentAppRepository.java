@@ -24,22 +24,22 @@ public class StudentAppRepository {
     public void save(StudentAppInfo application) {
         Date gradDate = application.toDate();
         jdbc.update(
-                "INSERT into student_applications (name, age, phone_number, email, high_school, graduation_date, prior_knowledge, current_plan, aptitude, passion, dedication) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                "INSERT into student_applications (name, age, phone_number, email, high_school, graduation_date, eligibility, prior_knowledge, current_plan, aptitude, passion, dedication) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 application.name, application.age, application.phoneNumber, application.email, application.highSchool,
-                gradDate, application.priorKnowledge, application.currentPlan, application.aptitude,
-                application.passion, application.dedication);
+                gradDate, application.eligibility, application.priorKnowledge, application.currentPlan,
+                application.aptitude, application.passion, application.dedication);
     }
 
     public List<StudentAppInfo> findAll() {
         return jdbc.query(
-                "SELECT id, name, age, phone_number, email, high_school, graduation_date, prior_knowledge, current_plan, aptitude, passion, dedication FROM student_applications",
+                "SELECT id, name, age, phone_number, email, high_school, graduation_date, eligibility, prior_knowledge, current_plan, aptitude, passion, dedication FROM student_applications",
                 this::mapModelToStudentAppInfo);
     }
 
     private StudentAppInfo mapModelToStudentAppInfo(ResultSet rs, int rowNum) throws SQLException {
         return new StudentAppInfo(rs.getString("name"), rs.getInt("age"), rs.getString("phone_number"),
                 rs.getString("email"), rs.getString("high_school"), rs.getString("graduation_date"),
-                rs.getString("prior_knowledge"), rs.getString("current_plan"), rs.getString("aptitude"),
-                rs.getString("passion"), rs.getString("dedication"));
+                rs.getBoolean("eligibility"), rs.getString("prior_knowledge"), rs.getString("current_plan"),
+                rs.getString("aptitude"), rs.getString("passion"), rs.getString("dedication"));
     }
 }
