@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <title>Admin</title>
+</head>
+
+<body>
+
+    <h1 class="bg-primary text-light text-center p-3">Base Camp Applicants</h1>
+    <div class="container">
+        <div class="card my-5 px-4 border-0">
+            {{^applicants}}
+            <div>
+                <h1 class="text-danger text-center">No applicants for the upcoming school year.</h1>
+            </div>
+            {{/applicants}}
+
+
+            {{#applicants.0}}
+            <h2 class="text-center pb-4">Here are your Applicants:</h2>
+            <hr>
+            {{/applicants.0}}
+            {{#applicants}}
+            <div class="text-left">
+                <h4 class="text-decoration-none p-2">
+                    <a href="">{{name}}</a>, <a href="">{{highSchool}}</a>
+                </h4>
+            </div>
+            {{/applicants}}
+
+        </div>
+    </div>
+</body>
+
+</html>
