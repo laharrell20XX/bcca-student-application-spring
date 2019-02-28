@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,131 +11,145 @@
 </head>
 
 <body>
-  <div class="card-body" name="studentInfo" id="studentInfo">
+  <div id="StudentApplication">
     <form action="apply" method="POST">
-      <div class="form-group">
-        <!-- <label for="studentNameInput">Name</label>
+      <div class="card-body" name="studentInfo" id="studentInfo">
+        <div class="form-group">
+          <!-- <label for="studentNameInput">Name</label>
                 <input type="text" class="form-control col-lg-8 col-sm-4" id="studentNameInput" placeholder="Enter name"> -->
-        <label class="field a-field a-field_a1 page__field">
-          <input name="name" class="field__input a-field__input" type="text" id="studentNameInput" placeholder="Enter Name"
-            required value="Student 1">
-          <span class="a-field__label-wrap">
-            <span class="a-field__label">Name</span>
-          </span>
-        </label>
-      </div>
-      <div class="form-group">
-        <label for="studentAgeInput">Age</label>
-        <input required value="14" name="age" type="number" class="form-control col-lg-8 col-sm-4 " id="studentAgeInput"
-          placeholder="Enter Age">
-      </div>
-      <div class="form-group">
-        <label for="studentPhoneNumberInput">Phone Number</label>
-        <input required name="phoneNumber" value="55555" type="tel" class="form-control col-lg-8 col-sm-4 " id="studentPhoneNumberInput"
-          placeholder="123-123-1234">
-      </div>
-      <div class="form-group" class="form-group">
-        <label for="studentEmailInput">Email address</label>
-        <input required value="janedoe@gmail.com" name="email" type="email" class="form-control col-lg-8 col-sm-4" id="studentEmailInput"
-          placeholder="Enter email">
-      </div>
-      <div class="">
-        <label for="studentSchoolInput">School you currently attend</label>
-        <select name="highSchool" id="studentHighSchoolSelector">
-          <option>Bruce High School</option>
-          <option>Charleston High School</option>
-          <option>Coffeeville High School</option>
-          <option>Coldwater High School</option>
-          <option>East Union Attendance Center</option>
-          <option>Falkner High School</option>
-          <option>Gateway Christian Academy</option>
-          <option>Greene County High School</option>
-          <option>Ingomar Attendance Center</option>
-          <option>Lafayette High School</option>
-          <option>Magee High School</option>
-          <option>Mooreville High School</option>
-          <option>North Panola High School</option>
-          <option>South Panola High school</option>
-          <option>Pontotoc High School</option>
-          <option>North Pontotoc High School</option>
-          <option>South Pontotoc High School</option>
-          <option>Pontotoc City High School</option>
-          <option>Pontotoc High Schol</option>
-          <option>Water Valley High School</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="">Expected Graduation Date:</label>
-        <input required name="graduationDate" type="date" class="form-control col-lg-8 col-sm-4" id="">
-      </div>
-      <div>
-        <label for="">Current Plans for Next Year:</label>
-        <input required value="Current plans for next year" class="form-control col-lg-8 col-sm-4" name="currentPlan"
-          type="text">
-      </div>
-      <div class="form-group">
-        <label>How did you hear about BCCA?</label>
-        <input required value="how did you hear about BCCA" class="form-control col-lg-8 col-sm-4" name="priorKnowledge"
-          type="text">
-      </div>
-      <div>
-        <label for="">Do you meet our eligibility requirements? </label>
-        <p class="text-muted">Are you a high school senior? Have you been nominated? Do you live in north
-          Mississippi?</p>
-        <div class="form-check">
-          <input required class="form-check-input" type="radio" id="radio1" name="radioButton" value="option" checked>
-          <label class="form-check-label" for="radio1">Yes</label>
+          <label class="field a-field a-field_a1 page__field">
+            <input name="name" class="field__input a-field__input" type="text" id="studentNameInput" placeholder="Enter Name"
+              required value="Student 1">
+            <span class="a-field__label-wrap">
+              <span class="a-field__label">Name</span>
+            </span>
+          </label>
         </div>
-        <div class="form-check">
-          <input required class="form-check-input" type="radio" id="radio2" name="radioButton" value="option">
-          <label class="form-check-label" for="radio2">No</label>
+        <div class="form-group">
+          <label for="studentAgeInput">Age</label>
+          <input required name="age" type="number" class="form-control col-lg-8 col-sm-4 " id="studentAgeInput"
+            placeholder="Enter Age">
+        </div>
+        <div class="form-group">
+          <label for="studentPhoneNumberInput">Phone Number</label>
+          <input required name="phoneNumber" type="tel" class="form-control col-lg-8 col-sm-4 " id="studentPhoneNumberInput"
+            placeholder="123-123-1234">
+        </div>
+        <div class="form-group" class="form-group">
+          <label for="studentEmailInput">Email address</label>
+          <input required name="email" type="email" class="form-control col-lg-8 col-sm-4" id="studentEmailInput"
+            placeholder="Enter email">
+        </div>
+        <div class="">
+          <label for="studentSchoolInput">School you currently attend</label>
+          <select name="highSchool" id="studentHighSchoolSelector">
+            <option>Bruce High School</option>
+            <option>Charleston High School</option>
+            <option>Coffeeville High School</option>
+            <option>Coldwater High School</option>
+            <option>East Union Attendance Center</option>
+            <option>Falkner High School</option>
+            <option>Gateway Christian Academy</option>
+            <option>Greene County High School</option>
+            <option>Ingomar Attendance Center</option>
+            <option>Lafayette High School</option>
+            <option>Magee High School</option>
+            <option>Mooreville High School</option>
+            <option>North Panola High School</option>
+            <option>South Panola High school</option>
+            <option>Pontotoc High School</option>
+            <option>North Pontotoc High School</option>
+            <option>South Pontotoc High School</option>
+            <option>Pontotoc City High School</option>
+            <option>Pontotoc High Schol</option>
+            <option>Water Valley High School</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">Expected Graduation Date:</label>
+          <input required name="graduationDate" type="date" class="form-control col-lg-8 col-sm-4" id="">
+        </div>
+        <div>
+          <label for="">Current Plans for Next Year:</label>
+          <input required class="form-control col-lg-8 col-sm-4" name="currentPlan" type="text">
+        </div>
+        <div class="form-group">
+          <label>How did you hear about BCCA?</label>
+          <input required class="form-control col-lg-8 col-sm-4" name="priorKnowledge" type="text">
+        </div>
+        <div>
+          <label for="">Do you meet our eligibility requirements? </label>
+          <p class="text-muted">Are you a high school senior? Have you been nominated? Do you live in north
+            Mississippi?</p>
+          <div class="form-check">
+            <input required class="form-check-input" type="radio" id="yesButton" name="radioButton" value="true"
+              checked>
+            <label class="form-check-label" for="radio1">Yes</label>
+          </div>
+          <div class="form-check">
+            <input required class="form-check-input" type="radio" id="noButton" name="radioButton" value="false">
+            <label class="form-check-label" for="radio2">No</label>
+          </div>
+        </div>
+        <div>
+          <button id="nextBtn" type="button" class="btn btn-success my-3">Next</button>
         </div>
       </div>
-      <div>
-        <button id="nextBtn" type="button" class="btn btn-success my-3">Next</button>
-      </div>
-  </div>
 
-  <div class="card-body" name="chrPage" id="chrPage" hidden="">
-    <hr>
-    <p>Base Camp Coding Academy is looking for students with the aptitude, and the dedication, to succeed in
-      this
-      program. Please share stories and examples of these two traits that demonstrate why you believe you
-      will
-      make an excellent candidate</p>
-    <hr>
-    <p>For example, you might include times when you were able to think logically or creatively to solve a
-      problem,
-      or when you overcame a challenging situation with school, work, or a project.
-      <hr>
-    </p>
-    <div>
-      <label for="">Aptitude:</label>
-      <p class="text-muted">Please share a specific example of when you were a strong problem solver.</p>
-      <input required class="form-control col-lg-8 col-sm-4" value="aptitude" name="aptitude" type="text">
-    </div>
-    <br>
-    <div>
-      <label for="">Dedication/Work Ethic:</label>
-      <p class="text-muted">Please share a specific example of your dedication and work ethic.</p>
-      <input required class="form-control col-lg-8 col-sm-4" value="dedication/work ethic" name="dedication" type="text">
-    </div>
-    <br>
-    <div>
-      <label for="">Passion/Persistence:</label>
-      <p class="text-muted">Please tell us about something you are passionate about and have worked hard to
-        achieve. This can be clubs, sports teams, hobbies, church groups, etc.</p>
-      <input required value="passion/persistence" class="form-control col-lg-8 col-sm-4" name="passion" type="text">
-    </div>
-    <p>Base Camp Coding Academy admits students of any race, color, national and ethnic origin to all the
-      rights,
-      privileges, programs, and activities generally accorded or made available to students at the school. It
-      does not discriminate on the basis of race, color, national and ethnic origin in administration of its
-      educational policies, admissions policies, scholarship and loan programs, and athletic and other
-      school-administered programs.</p>
-    <button>Submit</button>
+      <div class="card-body" name="chrPage" id="chrPage" hidden="">
+        <hr>
+        <p>Base Camp Coding Academy is looking for students with the aptitude, and the dedication, to succeed in
+          this
+          program. Please share stories and examples of these two traits that demonstrate why you believe you
+          will
+          make an excellent candidate</p>
+        <hr>
+        <p>For example, you might include times when you were able to think logically or creatively to solve a
+          problem,
+          or when you overcame a challenging situation with school, work, or a project.
+          <hr>
+        </p>
+        <div>
+          <label for="">Aptitude:</label>
+          <p class="text-muted">Please share a specific example of when you were a strong problem solver.</p>
+          <input required class="form-control col-lg-8 col-sm-4" name="aptitude" type="text">
+        </div>
+        <br>
+        <div>
+          <label for="">Dedication/Work Ethic:</label>
+          <p class="text-muted">Please share a specific example of your dedication and work ethic.</p>
+          <input required class="form-control col-lg-8 col-sm-4" name="dedication" type="text">
+        </div>
+        <br>
+        <div>
+          <label for="">Passion/Persistence:</label>
+          <p class="text-muted">Please tell us about something you are passionate about and have worked hard to
+            achieve. This can be clubs, sports teams, hobbies, church groups, etc.</p>
+          <input required class="form-control col-lg-8 col-sm-4" name="passion" type="text">
+        </div>
+        <p>Base Camp Coding Academy admits students of any race, color, national and ethnic origin to all the
+          rights,
+          privileges, programs, and activities generally accorded or made available to students at the school. It
+          does not discriminate on the basis of race, color, national and ethnic origin in administration of its
+          educational policies, admissions policies, scholarship and loan programs, and athletic and other
+          school-administered programs.</p>
+        <button>Submit</button>
+      </div>
     </form>
   </div>
+  <div class="container" id="thankYouPage" hidden>
+    <div class="card mb-5  mt-3 d-flex">
+      <div class="card-body d-flex justify-content-end">
+        <div>
+          <h3 class="text-center text-monospace">Thank you for your application.</h3>
+          <p class="text-center ">Your information has been saved and will be reviewed. Please click ok to go back to
+            the BCCA(?) home page.</p>
+        </div>
+        <div>
+          <a class="btn btn-primary mt-5 mr-2 ml-5" type="button" href="/">OK</a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
