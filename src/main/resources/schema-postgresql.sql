@@ -6,8 +6,9 @@ CREATE TABLE IF NOT EXISTS student_applications (
     email text,
     high_school text,
     graduation_date date,
-    prior_knowledge text,
     current_plan text,
+    prior_knowledge text,
+    eligibility boolean,
     aptitude text,
     dedication text,
     passion text
