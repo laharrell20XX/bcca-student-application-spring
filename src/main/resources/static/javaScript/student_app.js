@@ -3,6 +3,8 @@ main = function () {
     var charPart = document.getElementById("chrPage");
     var infoPart = document.getElementById("studentInfo");
     var phoneInput = infoPart.querySelector("#studentPhoneNumberInput")
+    var applicationPage = document.getElementById("StudentApplication")
+    var thankYouPage = document.getElementById("thankYouPage")
 
     function isInfoPartValid() {
         // checks the validity of all of the inputs in the info
@@ -36,14 +38,37 @@ main = function () {
     nextButton.addEventListener("click", (event) => {
         // checks the validity of the InfoPart
         if (isInfoPartValid()) {
-            // if valid, the user can progress
-            event.target.setAttribute("hidden", "")
-            event.preventDefault()
-            charPart.removeAttribute("hidden")
+            if (isEligible()) {
+                // if eligible the user can progress
+                event.target.setAttribute("hidden", "")
+                event.preventDefault()
+                charPart.removeAttribute("hidden")
+            } else {
+                // if not eligible the user is the thank is shown
+                showThankYou()
+            }
         } else {
             // otherwise the user cannot progress
         }
     })
+
+    function isEligible() {
+        var radioYes = document.querySelector("#yesButton")
+        if (radioYes.checked) {
+            // if the applicant is eligible true is returned
+            return true
+        } else {
+            return false
+        }
+
+    }
+
+    function showThankYou() {
+        // hides the application and shows the thank you
+        applicationPage.setAttribute("hidden", "")
+        thankYouPage.removeAttribute("hidden")
+
+    }
 
 
 
