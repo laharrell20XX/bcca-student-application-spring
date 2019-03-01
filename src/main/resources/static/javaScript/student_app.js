@@ -3,21 +3,20 @@ main = function () {
     var charPart = document.getElementById("chrPage");
     var infoPart = document.getElementById("studentInfo");
     var phoneInput = infoPart.querySelector("#studentPhoneNumberInput")
-    var applicationPage = document.getElementById("StudentApplication")
-    var thankYouPage = document.getElementById("thankYouPage")
 
     function isInfoPartValid() {
         // checks the validity of all of the inputs in the info
         // section
         let inputs = infoPart.querySelectorAll("input")
+        var isFormValid = true;
         for (let input of inputs) {
             if (!input.checkValidity()) {
                 // if one of the inputs aren't valid, false is returned
                 // so "form" is not valid 
-                return false
+                isFormValid = false
             }
         }
-        return true
+        return isFormValid
     }
 
     function isValidPhoneNumber(n) {
@@ -45,10 +44,9 @@ main = function () {
                 charPart.removeAttribute("hidden")
             } else {
                 var applicationForm = document.querySelector("#applicationForm")
-                // if not eligible the user is the thank is shown
+                // if not eligible the form is filled with def fields and submitted
                 fillDefaultFieldsCharPage()
                 applicationForm.submit()
-                showThankYou()
             }
         } else {
             // otherwise the user cannot progress
@@ -71,13 +69,6 @@ main = function () {
         inputs.forEach((element, key) => {
             element.value = "Incomplete - Not Eligible"
         })
-    }
-
-    function showThankYou() {
-        // hides the application and shows the thank you
-        applicationPage.setAttribute("hidden", "")
-        thankYouPage.removeAttribute("hidden")
-
     }
 
 }()
