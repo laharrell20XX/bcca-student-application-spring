@@ -44,7 +44,10 @@ main = function () {
                 event.preventDefault()
                 charPart.removeAttribute("hidden")
             } else {
+                var applicationForm = document.querySelector("#applicationForm")
                 // if not eligible the user is the thank is shown
+                fillDefaultFieldsCharPage()
+                applicationForm.submit()
                 showThankYou()
             }
         } else {
@@ -63,14 +66,18 @@ main = function () {
 
     }
 
+    function fillDefaultFieldsCharPage() {
+        var inputs = charPart.querySelectorAll("input")
+        inputs.forEach((element, key) => {
+            element.value = "Incomplete - Not Eligible"
+        })
+    }
+
     function showThankYou() {
         // hides the application and shows the thank you
         applicationPage.setAttribute("hidden", "")
         thankYouPage.removeAttribute("hidden")
 
     }
-
-
-
 
 }()
