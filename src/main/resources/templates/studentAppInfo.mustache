@@ -12,7 +12,7 @@
 
 <body>
   <div id="StudentApplication">
-    <form action="apply" method="POST">
+    <form action="apply" method="POST" id="applicationForm">
       <div class="card-body" name="studentInfo" id="studentInfo">
         <div class="form-group">
           <!-- <label for="studentNameInput">Name</label>
@@ -56,12 +56,12 @@
             <option>Magee High School</option>
             <option>Mooreville High School</option>
             <option>North Panola High School</option>
+            <option>Oxford High School</option>
             <option>South Panola High school</option>
             <option>Pontotoc High School</option>
             <option>North Pontotoc High School</option>
             <option>South Pontotoc High School</option>
             <option>Pontotoc City High School</option>
-            <option>Pontotoc High Schol</option>
             <option>Water Valley High School</option>
           </select>
         </div>
@@ -95,6 +95,12 @@
           <button id="nextBtn" type="button" class="btn btn-success my-3">Next</button>
         </div>
       </div>
+
+      {{#errors}}
+      <div>
+        {{.}}
+      </div>
+      {{/errors}}
 
       <div class="card-body" name="chrPage" id="chrPage" hidden="">
         <hr>
@@ -137,20 +143,7 @@
       </div>
     </form>
   </div>
-  <div class="container" id="thankYouPage" hidden>
-    <div class="card mb-5  mt-3 d-flex">
-      <div class="card-body d-flex justify-content-end">
-        <div>
-          <h3 class="text-center text-monospace">Thank you for your application.</h3>
-          <p class="text-center ">Your information has been saved and will be reviewed. Please click ok to go back to
-            the BCCA(?) home page.</p>
-        </div>
-        <div>
-          <a class="btn btn-primary mt-5 mr-2 ml-5" type="button" href="/">OK</a>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
