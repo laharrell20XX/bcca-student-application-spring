@@ -5,6 +5,8 @@ import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -23,8 +25,8 @@ public class StudentAppInfo {
         this.name = name;
     }
 
-    @NotBlank
-    @Size(min = 0)
+    @NotNull
+    @Min(0)
     public Integer age;
 
     public void setAge(Integer age) {
@@ -60,7 +62,7 @@ public class StudentAppInfo {
         this.graduationDate = graduationDate;
     }
 
-    @NotBlank
+    @NotNull
     public boolean eligibility;
 
     public void setEligibility(boolean eligibility) {
@@ -105,7 +107,6 @@ public class StudentAppInfo {
     public Date toDate() {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         ParsePosition position = new ParsePosition(0);
-        System.out.println(graduationDate);
         return formatter.parse(graduationDate, position);
     }
 
