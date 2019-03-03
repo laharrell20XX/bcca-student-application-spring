@@ -33,11 +33,17 @@ public class StudentAppRepository {
     public List<StudentAppInfo> findAll() {
         return jdbc.query(
                 "SELECT id, name, age, phone_number, email, high_school, graduation_date, eligibility, prior_knowledge, current_plan, aptitude, passion, dedication FROM student_applications",
-                this::mapModelToStudentAppInfo);
+                this::mapRowToStudentAppInfo);
     }
 
-    private StudentAppInfo mapModelToStudentAppInfo(ResultSet rs, int rowNum) throws SQLException {
-        return new StudentAppInfo(rs.getString("name"), rs.getInt("age"), rs.getString("phone_number"),
+    public StudentAppInfo findById(Integer id) {
+        Object[] args = { id };
+        return jdbc.queryForObject("SELECT * FROM student_applications where id = ?", this::mapRowToStudentAppInfo,
+                args);
+    }
+
+    public StudentAppInfo mapRowToStudentAppInfo(ResultSet rs, int rowNum) throws SQLException {
+        return new StudentAppInfo(rs.getInt("id"), rs.getString("name"), rs.getInt("age"), rs.getString("phone_number"),
                 rs.getString("email"), rs.getString("high_school"), rs.getString("graduation_date"),
                 rs.getBoolean("eligibility"), rs.getString("prior_knowledge"), rs.getString("current_plan"),
                 rs.getString("aptitude"), rs.getString("passion"), rs.getString("dedication"));
