@@ -5,7 +5,6 @@ import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -17,6 +16,12 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 public class StudentAppInfo {
+
+    public Integer id;
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     @NotBlank
     public String name;
@@ -110,10 +115,11 @@ public class StudentAppInfo {
         return formatter.parse(graduationDate, position);
     }
 
-    public StudentAppInfo(String name, Integer age, String phoneNumber, String email, String highSchool,
+    public StudentAppInfo(Integer id, String name, Integer age, String phoneNumber, String email, String highSchool,
             String graduationDate, boolean eligibility, String priorKnowledge, String currentPlan, String aptitude,
             String passion, String dedication) {
 
+        this.id = id;
         this.name = name;
         this.age = age;
         this.phoneNumber = phoneNumber;
@@ -131,5 +137,6 @@ public class StudentAppInfo {
     public String toString() {
         return String.format("(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", name, age, phoneNumber, email,
                 highSchool, graduationDate, eligibility, priorKnowledge, currentPlan, aptitude, passion, dedication);
+
     }
 }
