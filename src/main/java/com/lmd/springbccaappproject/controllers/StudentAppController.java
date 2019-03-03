@@ -21,12 +21,12 @@ public class StudentAppController {
         sar = repository;
     }
 
-    @GetMapping("/apply")
+    @GetMapping("/student/apply")
     public String showStudentApp() {
         return "studentAppInfo";
     }
 
-    @PostMapping("/apply")
+    @PostMapping("/student/apply")
     public String saveStudentApp(@Valid StudentAppInfo application, Errors errors, Model model) {
         if (errors.hasErrors()) {
             // something is wrong in the form
