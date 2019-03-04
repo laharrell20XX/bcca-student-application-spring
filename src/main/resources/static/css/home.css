@@ -1,0 +1,33 @@
+.bg-bcca-color {
+
+    background-color: #3b1b0c
+}
+
+.text-bcca {
+
+    color: #999d98
+}
+
+.link-notLIne {
+
+    text-decoration: none
+}
+
+.text-bcca:hover {
+
+    color: white;
+
+}
+
+.bccaImg {
+
+    width: 100%
+}
+
+.bccaClassImg {
+
+    max-width: 100%;
+
+    height: auto;
+
+}

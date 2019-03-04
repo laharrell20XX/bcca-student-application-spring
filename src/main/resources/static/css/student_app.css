@@ -182,3 +182,7 @@
     --fieldBorderColor: #D1C4E9;
     --fieldBorderColorActive: #673AB7;
 }
+
+.bg-bcca-color {
+    background-color: #3b1b0c
+}
