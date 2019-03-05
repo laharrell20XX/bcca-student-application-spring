@@ -7,7 +7,7 @@
   <title>Student Application</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="css/student_app.css">
+  <link rel="stylesheet" href="/css/student_app.css">
 </head>
 
 <body>
@@ -42,7 +42,7 @@
         </div>
         <div class="">
           <label for="studentSchoolInput">School you currently attend</label>
-          <select name="highSchool" id="studentHighSchoolSelector">
+          <select id="studentHighSchoolSelector">
             <option>Bruce High School</option>
             <option>Charleston High School</option>
             <option>Coffeeville High School</option>
@@ -63,7 +63,13 @@
             <option>South Pontotoc High School</option>
             <option>Pontotoc City High School</option>
             <option>Water Valley High School</option>
+            <option id="otherOption">Other</option>
           </select>
+          <input type="hidden" name="highSchool" id="studentHighSchoolInput">
+        </div>
+        <div class="form-group otherSpecifierWrapper" hidden>
+          <label>If other please specify:</label>
+          <input id="otherSpecifier" type="text">
         </div>
         <div class="form-group">
           <label for="">Expected Graduation Date:</label>
