@@ -18,7 +18,7 @@ public class AdminController {
         this.repository = repository;
     }
 
-    @GetMapping("/admin")
+    @GetMapping("/admin/home")
     public String showAdminHome(Model model) {
         model.addAttribute("applicants", repository.findAll());
         return "adminHome";
@@ -35,5 +35,11 @@ public class AdminController {
         // } else {
         // return "404";
         // }
+    }
+
+    @GetMapping("/applications/school/{high_school}")
+    public String sortByHighSchool(Model model, @PathVariable(value = "high_school") String highSchool) {
+        model.addAttribute("applicants", repository.findBySchool(highSchool));
+        return "studentHighSchoolPage";
     }
 }
