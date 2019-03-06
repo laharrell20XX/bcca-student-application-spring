@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class AdminController {
@@ -21,6 +24,21 @@ public class AdminController {
     @GetMapping("/admin/home")
     public String showAdminHome(Model model) {
         model.addAttribute("applicants", repository.findAll());
+        return "adminHome";
+    }
+
+    @GetMapping("/admin/applicants")
+    public String showStudentsByEligibility(Model model, @RequestParam String eligibilityStatus) {
+        if (eligibilityStatus.equals("eligible")) {
+            model.addAttribute("applicants", repository.findByEligibility(true));
+            model.addAttribute("type", "eligible");
+            return "adminHome";
+        }
+        if (eligibilityStatus.equals("not-eligible")) {
+            model.addAttribute("applicants", repository.findByEligibility(false));
+            model.addAttribute("type", "non-eligible");
+            return "adminHome";
+        }
         return "adminHome";
     }
 
