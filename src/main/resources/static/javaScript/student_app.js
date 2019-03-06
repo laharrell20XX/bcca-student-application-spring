@@ -9,10 +9,11 @@ main = function () {
     var otherSpecifierBox = document.querySelector(".otherSpecifierWrapper")
     var otherSpecifier = document.getElementById("otherSpecifier")
     var schoolInput = document.getElementById("studentHighSchoolInput")
+    var applicationForm = document.querySelector("#applicationForm")
 
     schoolInput.value = schoolOptions.value
     // sets the hidden value of the schoolInput by default
-    if (schoolOptions.value === "Other") {
+    if (schoolOptions.value === "otherOption") {
         // for when the page loads on the "Other option"
         otherSpecifierBox.removeAttribute("hidden")
     } else {
@@ -23,12 +24,14 @@ main = function () {
     function isInfoPartValid() {
         // checks the validity of all of the inputs in the info
         // section
-        let inputs = infoPart.querySelectorAll("input")
+        let inputs = infoPart.querySelectorAll("input, select")
         var isFormValid = true;
         for (let input of inputs) {
+            input.value = input.value.trim()
             if (!input.checkValidity()) {
                 // if one of the inputs aren't valid, false is returned
                 // so "form" is not valid 
+                input.classList.add("error")
                 isFormValid = false
             }
         }
@@ -39,6 +42,20 @@ main = function () {
         var phoneLayout = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
         // regular expression for phone number (123-456-7890)
         return phoneLayout.test(n);
+    }
+
+    function isValidSpecifier() {
+        if (otherSpecifier.value === "") {
+            if (schoolOptions.value != "otherOption") {
+                otherSpecifier.setCustomValidity("")
+                return true
+            }
+            otherSpecifier.classList.add("error")
+            otherSpecifier.setCustomValidity("Please enter a high school")
+            return false
+        }
+        otherSpecifier.setCustomValidity("")
+        return true
     }
 
 
@@ -62,43 +79,59 @@ main = function () {
 
 
     phoneInput.addEventListener("input", function (event) {
-        if (!isValidPhoneNumber(phoneInput.value)) {
+        if (!isValidPhoneNumber(phoneInput.value.trim())) {
             phoneInput.setCustomValidity("Please enter a valid phone");
         } else {
             phoneInput.setCustomValidity("");
         }
     });
 
-    schoolOptions.addEventListener("click", (event) => {
-        if (event.target.value === "Other") {
+
+    schoolOptions.addEventListener("change", (event) => {
+        if (event.target.value === "otherOption") {
             otherSpecifierBox.removeAttribute("hidden")
         } else {
-            otherSpecifier.value = ""
             schoolInput.value = event.target.value
+            otherSpecifier.value = ""
             otherSpecifierBox.setAttribute("hidden", "")
         }
     })
 
+    charPart.querySelectorAll("input").forEach(input => {
+        input.addEventListener("change", event => {
+            if (!input.checkValidity()) {
+                input.classList.add("error")
+            }
+        })
+    })
+
     otherSpecifier.addEventListener("change", event => {
+        isValidSpecifier()
         schoolInput.value = event.target.value
     })
 
     nextButton.addEventListener("click", (event) => {
         // checks the validity of the InfoPart
-        if (isInfoPartValid()) {
+        if ((isValidSpecifier() + isInfoPartValid()) == 2) {
             if (isEligible()) {
                 // if eligible the user can progress
                 event.target.setAttribute("hidden", "")
                 event.preventDefault()
                 charPart.removeAttribute("hidden")
             } else {
-                var applicationForm = document.querySelector("#applicationForm")
                 // if not eligible the form is filled with def fields and submitted
                 fillDefaultFieldsCharPage()
                 applicationForm.submit()
             }
         } else {
             // otherwise the user cannot progress
+        }
+    })
+
+    applicationForm.addEventListener("submit", (event) => {
+        event.target.querySelectorAll("input").forEach((input) => input.value = input.value.trim())
+        if (!event.target.checkValidity()) {
+            event.preventDefault();
         }
     })
 
