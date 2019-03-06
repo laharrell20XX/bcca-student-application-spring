@@ -31,15 +31,25 @@ public class StudentAppRepository {
     }
 
     public List<StudentAppInfo> findAll() {
-        return jdbc.query(
-                "SELECT id, name, age, phone_number, email, high_school, graduation_date, eligibility, prior_knowledge, current_plan, aptitude, passion, dedication FROM student_applications",
-                this::mapRowToStudentAppInfo);
+        return jdbc.query("SELECT * FROM student_applications ORDER BY name", this::mapRowToStudentAppInfo);
     }
 
     public StudentAppInfo findById(Integer id) {
         Object[] args = { id };
         return jdbc.queryForObject("SELECT * FROM student_applications where id = ?", this::mapRowToStudentAppInfo,
                 args);
+    }
+
+    public List<StudentAppInfo> findBySchool(String highSchool) {
+        Object[] args = { highSchool };
+        return jdbc.query("SELECT * FROM student_applications WHERE high_school = ? ORDER BY name",
+                this::mapRowToStudentAppInfo, args);
+    }
+
+    public List<StudentAppInfo> findByEligibility(Boolean eligibility) {
+        Object[] args = { eligibility };
+        return jdbc.query("SELECT * FROM student_applications WHERE eligibility = ? ORDER BY name",
+                this::mapRowToStudentAppInfo, args);
     }
 
     public StudentAppInfo mapRowToStudentAppInfo(ResultSet rs, int rowNum) throws SQLException {
