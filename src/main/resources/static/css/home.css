@@ -19,15 +19,31 @@
 
 }
 
-.bccaImg {
-
-    width: 100%
-}
-
 .bccaClassImg {
-
     max-width: 100%;
 
     height: auto;
 
+}
+
+#headerBkgImg {
+    max-width: 100%;
+    background-image: url("/imgs/BaseCamp_HeaderFeature_1.jpg");
+    background-position: center;
+    height: 132px;
+}
+
+#headerImg {
+    vertical-align: middle;
+
+}
+
+.center-spacer {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle
+}
+
+.fill {
+    text-align: center;
 }
