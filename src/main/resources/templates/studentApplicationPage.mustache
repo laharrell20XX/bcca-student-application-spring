@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/student_app.css">
+    <title>Student Application</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-bcca-color">
+        <span class="text-white">Student Application Page</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-bcca" href="/"><span class="text-bcca">Home</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-bcca" href="/admin/home"><span class="text-bcca">Admin</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <div class="container ">
+            <div class="card col-lg-9 container my-4">
+                <div class="card-body">
+                    {{#application}}
+                    <div>
+                        <h1>{{name}}</h1>
+                    </div>
+                    <a href="/admin/home" type="button" class="btn btn-outline-primary my-3">Back</a>
+
+                    <hr>
+
+                    <div class="d-flex flex-wrap">
+                        <label class="col-lg-4 pr-1 font-weight-bold ">Name:</label>
+                        <p class="col-lg-10 col-sm-6 pb-2">{{name}}</p>
+                    </div>
+                    <div class="d-flex flex-wrap">
+                        <label for="" class="col-lg-4 pr-1 font-weight-bold ">Age:</label>
+                        <p class="col-lg-10 col-sm-6 pb-2">{{age}}</p>
+                    </div>
+                    <div class="d-flex flex-wrap">
+                        <label for="" class="col-lg-4 pr-1 font-weight-bold">Phone number: </label>
+                        <p class="col-lg-10 col-sm-6 pb-2">{{phoneNumber}}</p>
+                    </div>
+                    <div class="d-flex flex-wrap">
+                        <label for="" class="col-lg-4 col-sm-6 font-weight-bold">Email Address: </label>
+                        <p class="col-lg-10 pb-2">{{email}}</p>
+                    </div>
+                    <div class="d-flex flex-wrap">
+                        <label for="" class="col-lg-4 pr-1 font-weight-bold">Current School: </label>
+                        <p class="col-lg-10 col-sm-6 pb-2">{{highSchool}}</p>
+                    </div>
+                    <div class="d-flex flex-wrap">
+                        <label for="" class="col-lg-4 pr-1 font-weight-bold">Graduation Date: </label>
+                        <p class="col-lg-10 col-sm-6 pb-2">{{graduationDate}}</p>
+                    </div>
+                    <hr>
+                    <div>
+                        <label for="" class="pr-2 col-lg-4 pr-2 font-weight-bold">Current plan for next year: </label>
+                        <p class="col-lg-10 col-sm-12">{{currentPlan}}
+                    </div>
+                    <div class="">
+                        <label for="" class="col-lg-4 pr-2 font-weight-bold">How did you find out about Base Camp?:
+                        </label>
+                        <p class="col-lg-10 col-sm-12">{{priorKnowledge}}</p>
+                    </div>
+                    <div class="">
+                        <label for="" class="col-lg-3 pr-2 font-weight-bold">Eligibility Status: </label>
+                        {{^eligibility}}
+                        <p class="col-lg-10 col-sm-12">Not eligible</p>
+                        {{/eligibility}}
+                        {{#eligibility}}
+                        <p class="col-lg-10 col-sm-12">
+                            Eligible
+                        </p>
+                        {{/eligibility}}
+                    </div>
+                    <div class="">
+                        <label for="" class="col-lg-3 pr-2 font-weight-bold">Aptitude: </label>
+                        <p class="col-lg-10 col-sm-12">{{aptitude}}</p>
+                    </div>
+                    <div class="">
+                        <label for="" class="col-lg-3 pr-2 font-weight-bold">Dedication/Work Ethic: </label>
+                        <p class="col-lg-10 col-sm-12">{{dedication}}</p>
+                    </div>
+                    <div class="">
+                        <label for="" class="col-lg-3 pr-2 font-weight-bold">Passion/Persistence: </label>
+                        <p class="col-lg-10 col-sm-12">{{passion}}</p>
+                    </div>
+                    <a href="/admin/home" type="button" class="btn btn-outline-primary my-3">Back</a>
+
+                    {{/application}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
