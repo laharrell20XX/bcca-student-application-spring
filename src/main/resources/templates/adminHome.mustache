@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     <!-- <h1 class="bg-bcca-color text-light text-center p-3 font-weight-normal">Base Camp Applicants</h1> -->
     <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-bcca-color">
         <span class="text-white">Base Camp Applicants</span>
@@ -38,20 +37,41 @@
         <div class="card my-5 px-4 border-0">
             {{^applicants}}
             <div>
-                <h1 class="text-danger text-center">No applicants for the upcoming school year.</h1>
+                <h1 class="text-danger text-center">No
+                    {{#type}}
+                    <span>{{.}}</span>
+                    {{/type}}
+                    applicants for the upcoming school year.</h1>
             </div>
             {{/applicants}}
 
 
             {{#applicants.0}}
             <h2 class="text-center pb-4">Here are your Applicant(s):</h2>
+            <div class="applicant-filters d-lg-flex justify-content-around">
+                <a class="text-primary text-decoration-none" href="/admin/home">All Applicants</a>
+                <a class="text-primary text-decoration-none" href="/admin/applicants?eligibilityStatus=eligible">Eligible
+                    Applicants</a>
+                <a class="text-primary text-decoration-none" href="/admin/applicants?eligibilityStatus=not-eligible">Non-Eligible
+                    Applicants</a>
+
+            </div>
             <hr>
             {{/applicants.0}}
             {{#applicants}}
             <div class="text-left">
-                <h4 class="text-decoration-none p-2">
+                <h5 class="text-decoration-none p-2">
                     <a href="/applications/{{id}}">{{name}}</a>, <a href="/applications/school/{{highSchool}}">{{highSchool}}</a>
-                </h4>
+                    {{^eligibility}}
+                    <span>
+                        (Not eligible)
+                    </span>
+                    {{/eligibility}}
+                    {{#eligibility}}
+                    <span>(Eligible)</span>
+                    {{/eligibility}}
+
+                </h5>
             </div>
             {{/applicants}}
 
