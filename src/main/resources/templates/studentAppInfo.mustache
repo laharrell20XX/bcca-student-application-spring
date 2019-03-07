@@ -5,44 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Student Application</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
   <link rel="stylesheet" href="/css/student_app.css">
 </head>
 
-<body>
+<body class="top-pic">
+  <div id="headerBkgImg" class="fill">
+    <span class="center-spacer"></span>
+    <img id="headerImg" src="/imgs/header-logo.png">
+  </div>
   <div id="StudentApplication">
-    <form action="apply" method="POST" id="applicationForm">
-      <div class="card-body" name="studentInfo" id="studentInfo">
+    <form class="card-body card col-lg-5  container pageTop" action="apply" method="POST" id="applicationForm">
+      <span class="pb-3" style="color: red">* Required</span>
+      <div class="" name="studentInfo" id="studentInfo">
         <div class="form-group">
-          <!-- <label for="studentNameInput">Name</label>
-                <input type="text" class="form-control col-lg-8 col-sm-4" id="studentNameInput" placeholder="Enter name"> -->
-          <label class="field a-field a-field_a1 page__field">
-            <input name="name" class="field__input a-field__input" type="text" id="studentNameInput" placeholder="Enter Name"
-              required value="Student 1">
-            <span class="a-field__label-wrap">
-              <span class="a-field__label">Name</span>
-            </span>
-          </label>
+          <label for="studentNameInput"> Name: <span class="required">*</span></label>
+          <input class="form-control" name="name" required type="text" id="studentNameInput" placeholder="Enter name">
         </div>
         <div class="form-group">
-          <label for="studentAgeInput">Age</label>
-          <input required name="age" type="number" class="form-control col-lg-8 col-sm-4 " id="studentAgeInput"
-            placeholder="Enter Age">
+          <label for="studentAgeInput">Age: <span class="required">*</span></label>
+          <input class="form-control" required name="age" type="number" id="studentAgeInput" placeholder="Enter Age">
         </div>
         <div class="form-group">
-          <label for="studentPhoneNumberInput">Phone Number</label>
-          <input required name="phoneNumber" type="tel" class="form-control col-lg-8 col-sm-4 " id="studentPhoneNumberInput"
-            placeholder="123-123-1234">
+          <label for="studentPhoneNumberInput">Phone Number: <span class="required">*</span></label>
+          <input class="form-control" required name="phoneNumber" type="text" id="studentPhoneNumberInput" placeholder="123-123-1234">
         </div>
         <div class="form-group" class="form-group">
-          <label for="studentEmailInput">Email address</label>
-          <input required name="email" type="email" class="form-control col-lg-8 col-sm-4" id="studentEmailInput"
-            placeholder="Enter email">
+          <label for="studentEmailInput">Email address: <span class="required">*</span></label>
+          <input class="form-control" required name="email" type="email" class="" id="studentEmailInput" placeholder="Enter email">
         </div>
-        <div class="">
-          <label for="studentSchoolInput">School you currently attend</label>
-          <select id="studentHighSchoolSelector">
+        <div class="form-group">
+          <label for="studentSchoolInput">School you currently attend :<span class="required">*</span> </label>
+          <select class="form-control" id="studentHighSchoolSelector" required>
+            <option value="">Select one ...</option>
             <option>Bruce High School</option>
             <option>Charleston High School</option>
             <option>Coffeeville High School</option>
@@ -63,44 +61,46 @@
             <option>South Pontotoc High School</option>
             <option>Pontotoc City High School</option>
             <option>Water Valley High School</option>
-            <option id="otherOption">Other</option>
+            <option value="otherOption">Other</option>
           </select>
-          <input type="hidden" name="highSchool" id="studentHighSchoolInput">
+          <input required type="hidden" name="highSchool" id="studentHighSchoolInput">
         </div>
         <div class="form-group otherSpecifierWrapper" hidden>
-          <label>If other please specify:</label>
-          <input id="otherSpecifier" type="text">
+          <label class="text-danger">If other please specify:</label>
+          <input class="form-control" id="otherSpecifier" type="text">
         </div>
-        <div class="form-group">
-          <label for="">Expected Graduation Date:</label>
-          <input required name="graduationDate" type="date" class="form-control col-lg-8 col-sm-4" id="">
-        </div>
-        <div>
-          <label for="">Current Plans for Next Year:</label>
-          <input required class="form-control col-lg-8 col-sm-4" name="currentPlan" type="text">
-        </div>
-        <div class="form-group">
-          <label>How did you hear about BCCA?</label>
-          <input required class="form-control col-lg-8 col-sm-4" name="priorKnowledge" type="text">
+        <div class="form-group mt-4">
+          <label for="">Expected Graduation Date: <span class="required">*</span></label>
+          <input class="form-control" required name="graduationDate" type="date" id="">
         </div>
         <div>
-          <label for="">Do you meet our eligibility requirements? </label>
-          <p class="text-muted">Are you a high school senior? Have you been nominated? Do you live in north
-            Mississippi?</p>
-          <div class="form-check">
-            <input required class="form-check-input" type="radio" id="yesButton" name="eligibility" value="true"
-              checked>
-            <label class="form-check-label" for="yesButton">Yes</label>
-          </div>
-          <div class="form-check">
-            <input required class="form-check-input" type="radio" id="noButton" name="eligibility" value="false">
-            <label class="form-check-label" for="noButton">No</label>
-          </div>
+          <label for="">Current Plans for Next Year: <span class="required">*</span></label>
+          <input required class="form-control" name="currentPlan" type="text">
         </div>
-        <div>
-          <button id="nextBtn" type="button" class="btn btn-success my-3">Next</button>
+        <div class="form-group pt-5">
+
+          <label>How did you hear about BCCA?: <span class="required">*</span></label>
+          <input required class="form-control" name="priorKnowledge" type="text">
         </div>
       </div>
+
+      <div>
+        <label for="">Do you meet our eligibility requirements?:<span class="required">*</span> </label>
+        <p class="text-muted">Are you a high school senior? Have you been nominated? Do you live in north
+          Mississippi?</p>
+        <div class="form-check">
+          <input required class="form-check-input" type="radio" id="yesButton" name="eligibility" value="true" checked>
+          <label class="form-check-label" for="yesButton">Yes</label>
+        </div>
+        <div class="form-check">
+          <input required class="form-check-input" type="radio" id="noButton" name="eligibility" value="false">
+          <label class="form-check-label" for="noButton">No</label>
+        </div>
+      </div>
+      <div>
+        <button id="nextBtn" type="button" class="btn btn-outline-primary my-3">Next</button>
+      </div>
+
 
       {{#errors}}
       <div>
@@ -121,43 +121,58 @@
           or when you overcame a challenging situation with school, work, or a project.
           <hr>
         </p>
-        <div>
-          <label for="">Aptitude:</label>
+        <div class="form-group">
+
+          <label for="">Aptitude: <span class="required">*</span></label>
           <p class="text-muted">Please share a specific example of when you were a strong problem solver.</p>
-          <input required class="form-control col-lg-8 col-sm-4" name="aptitude" type="text">
+
+          <input required class="form-control" name="aptitude" type="text">
         </div>
         <br>
-        <div>
-          <label for="">Dedication/Work Ethic:</label>
+        <div class="form-group">
+          <label for="">Dedication/Work Ethic: <span class="required">*</span></label>
           <p class="text-muted">Please share a specific example of your dedication and work ethic.</p>
-          <input required class="form-control col-lg-8 col-sm-4" name="dedication" type="text">
+          <input required class="form-control" name="dedication" type="text">
         </div>
         <br>
-        <div>
-          <label for="">Passion/Persistence:</label>
+        <div class="form-group">
+          <label for="">Passion/Persistence: <span class="required">*</span></label>
           <p class="text-muted">Please tell us about something you are passionate about and have worked hard to
             achieve. This can be clubs, sports teams, hobbies, church groups, etc.</p>
-          <input required class="form-control col-lg-8 col-sm-4" name="passion" type="text">
+          <input required class="mb-5 form-control" name="passion" type="text">
+
+          <p class="font-weight-bold p-3">
+            Base Camp Coding Academy admits students of any race, color, national and ethnic origin to all the
+            rights,
+            privileges, programs, and activities generally accorded or made available to students at the school. It
+            does not discriminate on the basis of race, color, national and ethnic origin in administration of its
+            educational policies, admissions policies, scholarship and loan programs, and athletic and other
+            school-administered programs.
+          </p>
+          <span>
+            <button class="btn btn-outline-primary mb-3">Submit</button>
+          </span>
         </div>
-        <p>Base Camp Coding Academy admits students of any race, color, national and ethnic origin to all the
-          rights,
-          privileges, programs, and activities generally accorded or made available to students at the school. It
-          does not discriminate on the basis of race, color, national and ethnic origin in administration of its
-          educational policies, admissions policies, scholarship and loan programs, and athletic and other
-          school-administered programs.</p>
-        <button>Submit</button>
-      </div>
     </form>
   </div>
-
-
+  <div class="text-center  mb-4">
+    <span class="d-flex justify-content-center mt-2 mb-1">
+      <a href="/" class="text-decoration-none"><img src="/imgs/header-logo.png" width="200"></a>
+    </span>
+    <b>
+      Home
+    </b>
+  </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous">
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <script src="/javaScript/student_app.js"></script>
 </body>
+
+</script>
 
 </html>
